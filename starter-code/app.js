@@ -30,8 +30,7 @@ const app = express();
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -52,8 +51,7 @@ app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 const index = require("./routes/index");
 app.use("/", index);
 
-// Problem: celebrities view not found 404 error.
-//Soln: need below (to link app.js to celebrities.js)
+//Link app.js to celebrities.js and movies.js
 const celebritiesIndex = require("./routes/celebrities");
 app.use("/", celebritiesIndex);
 

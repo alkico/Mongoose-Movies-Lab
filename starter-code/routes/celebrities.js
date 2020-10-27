@@ -30,8 +30,7 @@ router.get("/celebrities/:celebrityId", (req, res, next) => {
 
 //Add new celebrities to database:
 router.get("/celebrities/new", (req, res, next) => {
-  console.log("this is the get route for create new celeb");
-  res.render("/celebrities/new");
+  res.render("celebrities/new");
 });
 
 router.post("/celebrities/new", (req, res, next) => {
@@ -40,7 +39,7 @@ router.post("/celebrities/new", (req, res, next) => {
   newCelebrity
   .save()  
   .then((celebrity) => {
-      // res.send("New actor created", name, occupation, catchPhrase, req.body);
+      // res.send("New actor created", req.body);
       console.log(celebrity);
       res.redirect("/celebrities");
     })
@@ -50,7 +49,7 @@ router.post("/celebrities/new", (req, res, next) => {
     });
 });
 
-// Iteration five: delete celebs
+// Delete celebs
 router.post("/celebrities/:celebrityId/delete", (req, res, next) => {
   Celebrity.findByIdAndRemove(req.params.celebrityId)
     .then((celebrity) => {

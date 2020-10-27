@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Movie = require("../models/Movie");
 
-//show all movies
+//Show all movies
 router.get("/movies", (req, res, next) => {
   Movie.find()
     .then((movies) => {
@@ -16,13 +16,13 @@ router.get("/movies", (req, res, next) => {
     });
 });
 
-//show individual movie
+//show individual movies
 router.get("/movies/:movieId", (req, res, next) => {
-  console.log(req.body);
+  // console.log("id fm url is", id);
   Movie.findById(req.params.movieId)
     .then((movieData) => {
       console.log(movieData);
-      res.render("/movies/show", { movie: movieData });
+      res.render("movies/show", { movie: movieData });
     })
     .catch((err) => {
       console.log("Error finding celebrity data", err);
@@ -30,7 +30,7 @@ router.get("/movies/:movieId", (req, res, next) => {
     });
 });
 
-// Add Movie
+// add movie
 router.get("/movies/new", (req, res, next) => {
   res.render("movies/new");
 });
@@ -41,7 +41,7 @@ router.post("/movies/new", (req, res) => {
   newMovie
     .save()
     .then((movie) => {
-      console.log(movie);
+      // console.log(movie);
       res.redirect("/movies");
     })
     .catch((err) => {
