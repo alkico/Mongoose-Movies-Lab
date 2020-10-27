@@ -1,0 +1,13 @@
+<h2>Add a celebrity to the database</h2>
+
+<form action="/celebrities" method="POST">
+    <label for="celeb-name">Name:</label>
+    <input id="celeb-name" type="text" name="name"></input>
+    {{!-- name attributes must have same tag as in celebrity model AND the post route object keys so the user input
+    can be send to saved in the database --}}
+    <label for="celeb-occupation">Occupation:</label>
+    <input id="celeb-occupation" type="text" name="occupation"></input>
+    <label for="celeb-catchPhrase">Catch phrase:</label>
+    <input id="celeb-catchPhrase" type="text" name="catchPhrase"></input>
+    <button type="submit">Add celebrity</button>
+</form>

@@ -1,0 +1,10 @@
+<h2>Celebrity Details</h2>
+
+<div>
+    {{#with celebrity}}
+    <!-- celebrity because this is the key I assigned to the celebrityData -->
+    <h3>{{this.name}}</h3>
+    <p><strong>Occupation: </strong>{{occupation}}</p>
+    <p><strong>Catch phrase: </strong>"{{catchPhrase}}"</p>
+    {{/with}}
+</div>
